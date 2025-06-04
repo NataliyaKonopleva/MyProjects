@@ -1,0 +1,14 @@
+SET BELL OFF
+SET TALK OFF
+SET SCOREBOARD OFF
+SET STATUS OFF
+SET ESCAPE On
+SET EXACT Off
+SET CONF ON
+SET SAFETY OFF
+sET DELE ON
+set color to w/n,n/w
+clea
+set date germ
+clea all
+
