@@ -1,0 +1,29 @@
+FROM nginx:1.27.0-bookworm
+LABEL maintainer="stalwara@student.21-school.ru"
+
+RUN apt update && apt install -y gcc spawn-fcgi libfcgi-dev && \
+rm -rf /var/lib/apt/lists && \
+chmod u-s /usr/bin/chfn && \
+chmod u-s /usr/bin/umount && \
+chmod g-s /usr/bin/expiry && \
+chmod u-s /usr/bin/mount && \
+chmod g-s /usr/bin/chage && \
+chmod u-s /usr/bin/passwd && \
+chmod u-s /usr/bin/chsh && \
+chmod u-s /usr/bin/gpasswd && \
+chmod u-s /usr/bin/su && \
+chmod u-s /usr/bin/newgrp && \
+chmod g-s /usr/sbin/unix_chkpwd
+
+RUN adduser server_user
+USER server_user
+
+WORKDIR /app
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./server/server.c /server/server.c
+COPY ./server/start.sh /server/start.sh
+
+HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1
+
+ENTRYPOINT ["bash", "./start.sh"]

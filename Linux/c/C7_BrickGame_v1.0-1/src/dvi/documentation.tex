@@ -1,0 +1,51 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Tetris documentation.}
+\author{N.Konopleva}
+\date{October, 2024}
+
+\begin{document}
+\maketitle
+
+\textbf{Welcome to Tetris!}
+
+The program develop in C language of the C11 standard using the gcc compiler.
+
+
+Add support for all buttons provided on the physical console for control: 
+\begin{itemize}
+    \item Start game,
+    \item Pause,
+    \item End game,
+    \item Left arrow — move the piece to the left,
+    \item Right arrow — move piece to the right,
+    \item Down arrow — piece falls,
+    \item Up arrow is not used in this game,
+    \item Action (piece rotation).
+\end{itemize}
+
+
+Add the following mechanics to the game 
+Scoring;
+Store maximum score. 
+This information must be passed and displayed by the user interface in the sidebar. The maximum score must be stored in a file or an embedded
+DBMS and saved between program runs. 
+The maximum score must be changed during the game if the user exceeds the current maximum score. 
+
+Points are accumulated as follows: 
+
+\begin{itemize}
+    \item  1 row is 100 points;
+    \item  2 rows is 300 points;
+    \item  3 rows is 700 points;
+    \item  4 rows is 1500 points. 
+\end{itemize}
+
+Add level mechanics to the game. Each time a player earns 600 points, the level increases by 1. Increasing the level increases the speed at which
+the pieces move. The maximum number of levels is 10
+
+
+\textit{Have a nice game!}
+
+\end{document}
